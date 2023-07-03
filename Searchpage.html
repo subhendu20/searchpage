@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+          <meta charset="UTF-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
+          <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+          <title>Searchpage</title>
+</head>
+<style>
+           * {
+                    padding: 0px;
+                    margin: 0px;
+                    box-sizing: border-box;
+          }
+
+          html {
+                    font-size: 62.5%;
+          }
+
+          body {
+                    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+                              'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+                              sans-serif;
+                    -webkit-font-smoothing: antialiased;
+                    -moz-osx-font-smoothing: grayscale;
+                    ;
+          }
+
+          .main {
+                    width: 100%;
+
+          }
+         /*------------------------------------------- navbar --------------------------------------------*/
+         nav {
+                    width: 100%;
+                    padding: 10px;
+                    font-size: 20px;
+                    display: flex;
+                    justify-content: space-between;
+
+          }
+
+          nav span {
+                    width: 30%;
+                    padding: 5px 10px;
+                    display: flex;
+                    align-items: center;
+          }
+
+          nav span input {
+                    border: none;
+                    background: none;
+                    border-top-left-radius: 5px;
+                    border-top-right-radius: 5px;
+                    
+                    outline: none;
+                    padding: 10px;
+                    width: 90%;
+                    margin: 0px auto;
+                    color: rgb(75, 66, 66);
+                    font-size: 15px;
+                    border-bottom: 1px solid rgb(100, 98, 98);
+
+          }
+          nav span.search{
+                    width: 20%;
+                    
+                    padding: 0px;
+          }
+          nav span.search:hover{
+                    border: none;
+          }
+
+          nav span input:hover {
+                    background-color: rgb(168, 161, 161);
+                    border:none
+
+
+
+
+          }
+
+          nav span.menu {
+                    justify-content: flex-end;
+                    font-weight: 400;
+                    font-size: 15px;
+          }
+
+          nav span input::placeholder {
+                    font-size: 15px;
+                    
+
+          }
+
+          nav span a {
+                    text-decoration: none;
+                    color: rgb(51, 49, 49);
+                    margin: 0px 20px;
+                    font-weight: 400;
+          }
+
+          nav span span {
+
+                    padding: 10px;
+                    font-size: 15px;
+                    border-radius: 5px;
+                    background-color: rgb(17, 76, 87);
+                    color: rgb(252, 250, 250);
+                    width: fit-content;
+                    position: relative;
+
+          }
+         
+
+          nav span.logo img{
+                    width: 80px;
+                    height:50px;
+
+
+          }
+          /* ----------------------------------------------profiles------------------------------------------- */
+          .main .profile-list{
+                    width:80%;
+                    margin:0px auto;
+
+          }
+          .main .profile-list div.profiles{
+                    width:50%;
+                    margin:20px auto;
+                    border-radius: 10px;
+                    padding: 10px;
+                    box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px; ;
+                    display:flex;
+                    flex-direction: row;
+                    justify-content: space-between;
+          }
+          .main .profile-list div.profiles div.profile-with-rate{
+                    width: 30%;
+                    display:flex;
+                    flex-direction: column;
+
+
+          }
+          .main .profile-list div.profiles div.profile-with-rate img{
+                    width:100px;
+                    height: 100px;
+                    border-radius: 50%;
+                    margin: 20px;
+                    background-color: rgb(44, 126, 126);
+          }
+          .main .profile-list div.profiles div.profile-with-rate span{
+                    width: 40%;
+                    padding: 10px;
+                    background-color: rgb(17, 76, 87);
+                    color:white;
+                    font-size: 15px;
+                    display: flex;
+                    justify-content: center;
+          }
+
+          .main .profile-list div.profile-description{
+                    width: 50%;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    justify-content: center;
+                    
+
+          }
+          .main .profile-list div.profile-description span{
+                    margin: 10px 0px;
+                    font-size: 15px;
+                    font-weight: 500;
+
+          }
+          .main .profile-list div.profile-description span.name{
+                    font-size: 25px;
+                    color:rgb(46, 46, 46)
+          }
+          .main .profile-list div.profile-description span.desig{
+                    color: rgb(107, 103, 103);
+                    font-weight: 100;
+                    
+          }
+
+
+          /* -----------------------------------------------footer-------------------------------------------- */
+          .main .footer{
+                    width:100%;
+                    min-height: 300px;
+                    margin-top: 50px;
+                    background-color: rgb(17, 76, 87);
+          }
+          .main .footer .footers-menu{
+                    display:flex;
+                    flex-direction: row;
+                    width: 60%;
+                    justify-content: space-between;
+                    margin: 0px auto;
+          }
+          .main .footer .footers-menu .footer-column{
+                    padding: 10px;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    color:rgb(12, 12, 12);
+          }
+          .main .footer .footers-menu .footer-column a{
+                    font-size: 15px;
+                    margin:10px 0px;
+                    text-decoration: none;
+                    color: rgb(216, 214, 214);
+
+          }
+          .main .footer .footer-brandings{
+                    width: 60%;
+                    margin:0px auto;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    font-size: 15px;
+          }
+          .main .footer .footer-brandings span{
+                    margin:10px 0px;
+          }
+          .main .footer .footer-brandings .brand-logo{
+                    display: flex;
+                    justify-content: space-evenly;
+                    color:rgb(216, 214, 214);
+                    font-size: 30px;
+          }
+          .main .footer .footer-brandings .brand-logo i{
+                    margin: 0px 10px;
+          }
+</style>
+<body>
+          <div class="main">
+                    <nav class="nav">
+                              <span class="logo">
+                                        <img src="./logo jobfreak.png" alt="">
+
+                              </span>
+                              <span class="search">
+                                        <input type="text" placeholder="Search"><i class='bx bx-search-alt' ></i>
+
+                              </span>
+                              <span class="menu">
+                                        <a href="/pricing">Pricing</a>
+                                        <a href="/Resource">Resource</a>
+                                        <a href="/Customers">Customers</a>
+                                        <a href="/login">Log in</a>
+                                        <span class="profile-details">
+                                                  <p>Start a free trial</p>
+                                                 
+                                        </span>
+
+                              </span>
+
+                    </nav>
+                    <div class="profile-list">
+                              <div class="profiles">
+                                        <div class="profile-with-rate">
+                                                  <img src="./pngwing.com (27).png" alt="loading">
+                                                  <span>100%</span>
+
+                                        </div>
+                                        <div class="profile-description">
+                                                  <span class="name">
+                                                            Joe Biden
+
+                                                  </span>
+                                                  <span class="desig">
+                                                            UI/UX Designer / Frontend Developer / Figma / Wordpress / Wix / Duda / Squarespace
+
+                                                  </span>
+
+
+                                        </div>
+
+                              </div>
+                              <div class="profiles">
+                                        <div class="profile-with-rate">
+                                                  <img src="./pngwing.com (27).png" alt="loading">
+                                                  <span>100%</span>
+
+                                        </div>
+                                        <div class="profile-description">
+                                                  <span class="name">
+                                                            Joe Biden
+
+                                                  </span>
+                                                  <span class="desig">
+                                                            UI/UX Designer / Frontend Developer / Figma / Wordpress / Wix / Duda / Squarespace
+
+                                                  </span>
+
+
+                                        </div>
+
+                              </div>
+                              <div class="profiles">
+                                        <div class="profile-with-rate">
+                                                  <img src="./pngwing.com (27).png" alt="loading">
+                                                  <span>100%</span>
+
+                                        </div>
+                                        <div class="profile-description">
+                                                  <span class="name">
+                                                            Joe Biden
+
+                                                  </span>
+                                                  <span class="desig">
+                                                            UI/UX Designer / Frontend Developer / Figma / Wordpress / Wix / Duda / Squarespace
+
+                                                  </span>
+
+
+                                        </div>
+
+                              </div>
+                              <div class="profiles">
+                                        <div class="profile-with-rate">
+                                                  <img src="./pngwing.com (27).png" alt="loading">
+                                                  <span>100%</span>
+
+                                        </div>
+                                        <div class="profile-description">
+                                                  <span class="name">
+                                                            Joe Biden
+
+                                                  </span>
+                                                  <span class="desig">
+                                                            UI/UX Designer / Frontend Developer / Figma / Wordpress / Wix / Duda / Squarespace
+
+                                                  </span>
+
+
+                                        </div>
+
+                              </div>
+                              <div class="profiles">
+                                        <div class="profile-with-rate">
+                                                  <img src="./pngwing.com (27).png" alt="loading">
+                                                  <span>100%</span>
+
+                                        </div>
+                                        <div class="profile-description">
+                                                  <span class="name">
+                                                            Joe Biden
+
+                                                  </span>
+                                                  <span class="desig">
+                                                            UI/UX Designer / Frontend Developer / Figma / Wordpress / Wix / Duda / Squarespace
+
+                                                  </span>
+
+
+                                        </div>
+
+                              </div>
+                              <div class="profiles">
+                                        <div class="profile-with-rate">
+                                                  <img src="./pngwing.com (27).png" alt="loading">
+                                                  <span>100%</span>
+
+                                        </div>
+                                        <div class="profile-description">
+                                                  <span class="name">
+                                                            Joe Biden
+
+                                                  </span>
+                                                  <span class="desig">
+                                                            UI/UX Designer / Frontend Developer / Figma / Wordpress / Wix / Duda / Squarespace
+
+                                                  </span>
+
+
+                                        </div>
+
+                              </div>
+                              <div class="profiles">
+                                        <div class="profile-with-rate">
+                                                  <img src="./pngwing.com (27).png" alt="loading">
+                                                  <span>100%</span>
+
+                                        </div>
+                                        <div class="profile-description">
+                                                  <span class="name">
+                                                            Joe Biden
+
+                                                  </span>
+                                                  <span class="desig">
+                                                            UI/UX Designer / Frontend Developer / Figma / Wordpress / Wix / Duda / Squarespace
+
+                                                  </span>
+
+
+                                        </div>
+
+                              </div>
+                              <div class="profiles">
+                                        <div class="profile-with-rate">
+                                                  <img src="./pngwing.com (27).png" alt="loading">
+                                                  <span>100%</span>
+
+                                        </div>
+                                        <div class="profile-description">
+                                                  <span class="name">
+                                                            Joe Biden
+
+                                                  </span>
+                                                  <span class="desig">
+                                                            UI/UX Designer / Frontend Developer / Figma / Wordpress / Wix / Duda / Squarespace
+
+                                                  </span>
+
+
+                                        </div>
+
+                              </div>
+                              <div class="profiles">
+                                        <div class="profile-with-rate">
+                                                  <img src="./pngwing.com (27).png" alt="loading">
+                                                  <span>100%</span>
+
+                                        </div>
+                                        <div class="profile-description">
+                                                  <span class="name">
+                                                            Joe Biden
+
+                                                  </span>
+                                                  <span class="desig">
+                                                            UI/UX Designer / Frontend Developer / Figma / Wordpress / Wix / Duda / Squarespace
+
+                                                  </span>
+
+
+                                        </div>
+
+                              </div>
+                              <div class="profiles">
+                                        <div class="profile-with-rate">
+                                                  <img src="./pngwing.com (27).png" alt="loading">
+                                                  <span>100%</span>
+
+                                        </div>
+                                        <div class="profile-description">
+                                                  <span class="name">
+                                                            Joe Biden
+
+                                                  </span>
+                                                  <span class="desig">
+                                                            UI/UX Designer / Frontend Developer / Figma / Wordpress / Wix / Duda / Squarespace
+
+                                                  </span>
+
+
+                                        </div>
+
+                              </div>
+                              <div class="profiles">
+                                        <div class="profile-with-rate">
+                                                  <img src="./pngwing.com (27).png" alt="loading">
+                                                  <span>100%</span>
+
+                                        </div>
+                                        <div class="profile-description">
+                                                  <span class="name">
+                                                            Joe Biden
+
+                                                  </span>
+                                                  <span class="desig">
+                                                            UI/UX Designer / Frontend Developer / Figma / Wordpress / Wix / Duda / Squarespace
+
+                                                  </span>
+
+
+                                        </div>
+
+                              </div>
+                              <div class="profiles">
+                                        <div class="profile-with-rate">
+                                                  <img src="./pngwing.com (27).png" alt="loading">
+                                                  <span>100%</span>
+
+                                        </div>
+                                        <div class="profile-description">
+                                                  <span class="name">
+                                                            Joe Biden
+
+                                                  </span>
+                                                  <span class="desig">
+                                                            UI/UX Designer / Frontend Developer / Figma / Wordpress / Wix / Duda / Squarespace
+
+                                                  </span>
+
+
+                                        </div>
+
+                              </div>
+                              <div class="profiles">
+                                        <div class="profile-with-rate">
+                                                  <img src="./pngwing.com (27).png" alt="loading">
+                                                  <span>100%</span>
+
+                                        </div>
+                                        <div class="profile-description">
+                                                  <span class="name">
+                                                            Joe Biden
+
+                                                  </span>
+                                                  <span class="desig">
+                                                            UI/UX Designer / Frontend Developer / Figma / Wordpress / Wix / Duda / Squarespace
+
+                                                  </span>
+
+
+                                        </div>
+
+                              </div>
+                              <div class="profiles">
+                                        <div class="profile-with-rate">
+                                                  <img src="./pngwing.com (27).png" alt="loading">
+                                                  <span>100%</span>
+
+                                        </div>
+                                        <div class="profile-description">
+                                                  <span class="name">
+                                                            Joe Biden
+
+                                                  </span>
+                                                  <span class="desig">
+                                                            UI/UX Designer / Frontend Developer / Figma / Wordpress / Wix / Duda / Squarespace
+
+                                                  </span>
+
+
+                                        </div>
+
+                              </div>
+                              
+
+                    </div>
+                    <div class="footer">
+                              <div class="footers-menu">
+                                        <div class="footer-column">
+                                                  <a href="">Why xhire?</a>
+                                                  <a href="">Requirement Software</a>
+                                                  <a href="">Requirement Marketing</a>
+                                                  <a href="">Candidate Experience</a>
+                                                  <a href="">Candidate Screening</a>
+                                                  <a href="">Requirement System</a>
+                                                  
+
+
+                                        </div>
+                                        <div class="footer-column">
+                                                  <a href="">Early Stage</a>
+                                                  <a href="">Startups</a>
+                                                  <a href="">Restuarants</a>
+                                                  <a href="">Small Business</a>
+                                                  <a href="">Marketing & Advertising
+                                                  </a>
+                                                  <a href="">Tech</a>
+                                                  
+                                                  
+                                        </div>
+                                        <div class="footer-column">
+                                                  <a href="">Pricing</a>
+                                                  <a href="">About Us</a>
+                                                  <a href="">Careers</a>
+                                                  <a href="">Blog</a>
+                                                  <a href="">Templates</a>
+                                                  <a href="">Solutions Program</a>
+                                                  
+                                                  
+                                        </div>
+
+                              </div>
+                              <div class="footer-brandings">
+                                        <span class="brand-logo">
+                                                  <i class='bx bxl-twitter'></i>
+                                                  <i class='bx bxl-linkedin' ></i>
+                                                  <i class='bx bxl-facebook-square' ></i>
+                                                  <i class='bx bxl-instagram' ></i>
+                                                  <i class='bx bxl-youtube' ></i>
+
+
+
+                                        </span>
+                                        <span class="copyright-message">
+                                                  <i class='bx bx-copyright'></i> California USA, Inc. All rights reserved 
+
+                                        </span>
+
+                              </div>
+                              
+                              
+
+                    </div>
+
+
+          </div>
+          
+</body>
+</html>
